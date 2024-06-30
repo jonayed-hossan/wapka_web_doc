@@ -1,8 +1,7 @@
-Welcome to Lumache's documentation!
+Welcome to Wapka Web documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
+**wapka** (/wapka.org/) is a self hosted CMS & Web Development Platforms.
 It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
 and offers a *simple* and *intuitive* API.
 
