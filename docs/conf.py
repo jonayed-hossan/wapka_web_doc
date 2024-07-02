@@ -1,116 +1,63 @@
-# -*- coding: utf-8 -*-
+# Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import sys
-import os
-import re
+# -- Path setup --------------------------------------------------------------
 
-# Prefer to use the version of the theme in this repo
-# and not the installed version of the theme.
-sys.path.insert(0, os.path.abspath('..'))
-sys.path.append(os.path.abspath('./demo/'))
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+#
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('.'))
 
-from sphinx_rtd_theme import __version__ as theme_version
-from sphinx_rtd_theme import __version_full__ as theme_version_full
-from sphinx.locale import _
 
-project = u'Read the Docs Sphinx Theme'
-slug = re.sub(r'\W+', '-', project.lower())
-version = theme_version
-release = theme_version_full
-author = u'Dave Snider, Read the Docs, Inc. & contributors'
-copyright = author
-language = 'en'
+# -- Project information -----------------------------------------------------
+
+project = "Basic Sphinx Example Project"
+copyright = "2022, Read the Docs core team"
+author = "Read the Docs core team"
+
+
+# -- General configuration ---------------------------------------------------
+# -- General configuration
 
 extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinx_rtd_theme',
+    "sphinx.ext.duration",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
 ]
-
-templates_path = ['_templates']
-source_suffix = '.rst'
-exclude_patterns = []
-locale_dirs = ['locale/']
-gettext_compact = False
-
-master_doc = 'index'
-suppress_warnings = ['image.nonlocal_uri']
-pygments_style = 'default'
-
-if sys.version_info < (3, 0):
-    tags.add("python2")
-else:
-    tags.add("python3")
 
 intersphinx_mapping = {
-    'rtd': ('https://docs.readthedocs.io/en/stable/', None),
-    'rtd-dev': ('https://dev.readthedocs.io/en/stable/', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+    "rtd": ("https://docs.readthedocs.io/en/stable/", None),
+    "python": ("https://docs.python.org/3/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 }
+intersphinx_disabled_domains = ["std"]
 
-html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    'logo_only': True,
-    'navigation_depth': 5,
-}
-html_context = {}
+templates_path = ["_templates"]
 
-if not 'READTHEDOCS' in os.environ:
-    html_static_path = ['_static/']
-    html_js_files = ['debug.js']
+# -- Options for EPUB output
+epub_show_urls = "footnote"
 
-    # Add fake versions for local QA of the menu
-    html_context['test_versions'] = list(map(
-        lambda x: str(x / 10),
-        range(1, 100)
-    ))
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-html_logo = "demo/static/logo-wordmark-light.svg"
-html_show_sourcelink = True
-html_favicon = "demo/static/favicon.ico"
+# -- Options for HTML output -------------------------------------------------
 
-htmlhelp_basename = slug
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = "sphinx_rtd_theme"
 
-
-latex_documents = [
-  ('index', '{0}.tex'.format(slug), project, author, 'manual'),
-]
-
-man_pages = [
-    ('index', slug, project, [author], 1)
-]
-
-texinfo_documents = [
-  ('index', slug, project, author, slug, project, 'Miscellaneous'),
-]
-
-
-# Extensions to theme docs
-def setup(app):
-    from sphinx.domains.python import PyField
-    from sphinx.util.docfields import Field
-
-    app.add_object_type(
-        'confval',
-        'confval',
-        objname='configuration value',
-        indextemplate='pair: %s; configuration value',
-        doc_field_types=[
-            PyField(
-                'type',
-                label=_('Type'),
-                has_arg=False,
-                names=('type',),
-                bodyrolename='class'
-            ),
-            Field(
-                'default',
-                label=_('Default'),
-                has_arg=False,
-                names=('default',),
-            ),
-        ]
-    )
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["_static"]

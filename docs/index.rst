@@ -1,90 +1,25 @@
-Read the Docs Sphinx Theme
-==========================
+.. include:: ../README.rst
 
-This Sphinx_ theme was designed to provide a great reader experience for
-documentation users on both desktop and mobile devices. This theme is commonly
-used with projects on `Read the Docs`_ but can work with any Sphinx project.
+Welcome to Lumache's documentation!
+===================================
 
-.. _Sphinx: http://www.sphinx-doc.org
-.. _Read the Docs: http://www.readthedocs.org
+**Lumache** (/lu'make/) is a Python library for cooks and food lovers
+that creates recipes mixing random ingredients.
+It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
+and offers a *simple* and *intuitive* API.
 
-Using this theme
-----------------
+Check out the :doc:`usage` section for further information, including
+how to :ref:`installation` the project.
 
-:doc:`installing`
-    How to install this theme on your Sphinx project.
+.. note::
 
-:doc:`configuring`
-    Theme configuration and customization options.
+   This project is under active development.
 
-:ref:`supported-browsers`
-    Supported browser/operating system combinations.
-
-:ref:`supported-dependencies`
-    Supported project dependencies, like Python and Sphinx.
-
-Development
------------
-
-:doc:`contributing`
-    How to contribute changes to the theme.
-
-:doc:`Development guidelines <development>`
-    Guidelines the theme developers use for developing and testing changes.
-
-`Read the Docs contributor guide`_
-    Our contribution guidelines extend to all projects maintained by Read the
-    Docs core team.
-
-:doc:`changelog`
-    The theme development changelog.
-
-:doc:`Demo documentation <demo/structure>`
-    The theme's styleguide test environment, where new changes are tested.
-
-
-.. _Read the Docs contributor guide: https://docs.readthedocs.io/en/stable/contribute.html
-
-
-.. Hidden TOCs
+Contents
+--------
 
 .. toctree::
-   :caption: Theme Documentation
-   :maxdepth: 2
-   :hidden:
 
-   installing
-   configuring
-   development
-   contributing
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   changelog
-
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Demo Documentation
-    :hidden:
-
-    demo/structure
-    demo/demo
-    demo/lists_tables
-    demo/api
-
-.. toctree::
-    :maxdepth: 3
-    :numbered:
-    :caption: This is an incredibly long caption for a long menu
-    :hidden:
-
-    demo/long
-    
-.. toctree::
-    :maxdepth: 3
-    :caption: Breadcrumbs
-
-    demo/level1/index.rst
+   Home <self>
+   usage
+   api
